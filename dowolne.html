@@ -1,0 +1,119 @@
+<!DOCTYPE html/>
+<html>
+	<head>
+		<title>Stwórz własną iluzję!</title>
+	</head>
+	<style type="text/css" >
+		.panel_edycji p {
+			display: inline;
+		}
+		input[type="number"] {
+			width: 50px;
+		}
+		input.pathLetter {
+			width: 20px;
+		}
+	</style>
+	<body>
+		<div id="panel_edycji" class="panel_edycji">
+			<p id="width" class="rect" style="display: none" >Szerokość <input type="number" /></p>
+			<p id="hight" class="rect" style="display: none" >Wysokość <input type="number" /></p>
+			<p id="x" class="rect text" style="display: none" >Pozycja X <input type="number" /></p>
+			<p id="y" class="rect text" style="display: none" >Pozycja Y <input type="number" /></p>
+			<p id="rectrx" class="rect" style="display: none" >Zaokrąglenie boków w osi X <input type="number" /></p>
+			<p id="rectry" class="rect" style="display: none" >Zaokrąglenie boków w osi Y <input type="number" /></p>
+			<p id="cx" class="circle ellipse" style="display: none" >Pozycja X <input type="number" /></p>
+			<p id="cy" class="circle ellipse" style="display: none" >Pozycja Y <input type="number" /></p>
+			<p id="r" class="circle" style="display: none" >Promień <input type="number" /></p>
+			<p id="rx" class="ellipse" style="display: none" >Promień dla osi X<input type="number" /></p>
+			<p id="ry" class="ellipse" style="display: none" >Promień dla osi Y<input type="number" /></p>
+			<p id="x1" class="line" style="display: none" >Początkowa pozycja X <input type="number" /></p>
+			<p id="y1" class="line" style="display: none" >Początkowa pozycja Y <input type="number" /></p>
+			<p id="x2" class="line" style="display: none" >Końcowa pozycja X <input type="number" /></p>
+			<p id="y2" class="line" style="display: none" >Końcowa pozycja Y <input type="number" /></p>
+			<p id="points" class="polygon polyline" style="display: none" >Współrzędne punktu <input type="number" placeholder="X"/> <input type="number" placeholder="Y"/></input><button>Dodaj</button></p>
+			<p id="path" class="path" style="display: none" title="Dopuszczalne rodzaje przejścia:
+L - linia
+H - linia pozioma
+V - linia pionowa
+C - Sześcienna krzywa Béziera
+S - Gładka sześcienna krzywa Béziera
+Q - Kwadratowa krzywa Béziera
+T - Gładka kwadratowa krzywa Béziera
+A - Krzywa łuku" >Pozycja początkowa
+				<input type="number" placeholder="X"/> <input type="number" placeholder="Y"/>
+				Rodzaj przejścia <input class="pathLetter" type="text" pattern="[L,H,V,C,S,Q,T,A]{1}" oninput="this.reportValidity()"/>
+				<button>Dodaj</button>
+			</p>
+			<p id="text" class="text" style="display: none" >Długość tekstu <input type="number" /></p>
+			
+			
+			<p id="stroke" class="rect circle ellipse line polygon polyline path text" style="display: none" >Kolor obwodu <input type="color" /><button>Gradient</button></p>
+			<p id="stroke-width" class="rect circle ellipse line polygon polyline path text" style="display: none" >Rozmiar obwodu <input type="number" /></p>
+			<p id="fill" class="rect circle ellipse line polygon polyline path text" style="display: none" >Wypełnienie <input type="color" /><button>Gradient</button></p>
+			<p id="put" class="rect circle ellipse line polygon polyline path text" style="display: none" ><button>Wstaw</button></p>
+		</div>
+		<svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000px" height="800px">
+			<rect id="background" width="1000" height="800" fill="gray" />
+			<symbol id="rect" onclick="kopiuj(this.getAttribute('id'))">
+				<rect x="0" y="0" rx="0" ry="0" width="50" height="50" stroke="black" stroke-width="1" fill="black"/>
+			</symbol>
+			<symbol id="circle" onclick="kopiuj(this.getAttribute('id'))">
+				<circle cx="0" cy="0" r="25" stroke="black" stroke-width="1" fill="black"/>
+			</symbol>
+			<symbol id="ellipse" onclick="kopiuj(this.getAttribute('id'))">
+				<ellipse cx="0" cy="0" rx="25" ry="50" stroke="black" stroke-width="1" fill="black"/>
+			</symbol>
+			<symbol id="line" onclick="kopiuj(this.getAttribute('id'))">
+				<line x1="0" y1="0" x2="20" y2="20" stroke="black" stroke-width="1" />
+			</symbol>
+			<symbol id="polygon" onclick="kopiuj(this.getAttribute('id'))">
+				<polygon points="0,0 50,40 20,15" stroke="black" stroke-width="1" fill="black"/>
+			</symbol>
+			<symbol id="polyline" onclick="kopiuj(this.getAttribute('id'))">
+				<polygon points="0,0 20,10 30,30 40,10" stroke="black" stroke-width="1" fill="black"/>
+			</symbol>
+			<symbol id="path" onclick="kopiuj(this.getAttribute('id'))">
+				<path d="M20 10 Q30,30 50,10 " stroke="black" stroke-width="1" fill="black"/>
+			</symbol>
+			<symbol id="text" onclick="kopiuj(this.getAttribute('id'))">
+				<text x="10" y="10"></text>
+			</symbol>
+			<symbol id="linearGradient" onclick="kopiuj(this.getAttribute('id'))">
+				<linearGradient id="myGradient" gradientTransform="rotate(0)">
+					<stop offset="0%"  stop-color="red" />
+					<stop offset="100%" stop-color="black" />
+				</linearGradient>
+			</symbol>
+			<symbol cx="0" cy="0" fr="0" id="radialGradient" onclick="kopiuj(this.getAttribute('id'))">
+				<radialGradient id="myRadialGradient">
+					<stop offset="0%"  stop-color="red" />
+					<stop offset="100%" stop-color="black" />
+				</radialGradient>
+			</symbol>
+		</svg>
+		<p>Wstaw</p>
+		<button id="addRect" name="rect" onclick="rozwinPanelEdycji(this.name)">Prostokąt</button>
+		<button id="addCircle" name="circle" onclick="rozwinPanelEdycji(this.name)">Koło</button>
+		<button id="addEllipse" name="ellipse" onclick="rozwinPanelEdycji(this.name)">Elipsa</button>
+		<button id="addLine" name="line" onclick="rozwinPanelEdycji(this.name)">Linia</button>
+		<button id="addPolygon" name="polygon" onclick="rozwinPanelEdycji(this.name)">Poligon</button>
+		<button id="addPolyline" name="polyline" onclick="rozwinPanelEdycji(this.name)">Polilinia</button>
+		<button id="addPath" name="path" onclick="rozwinPanelEdycji(this.name)">Ścieżka</button>
+		<button id="addText" name="text" onclick="rozwinPanelEdycji(this.name)">Tekst</button>
+	</body>
+	<script type="text/javascript">
+		const panelEdycji = document.getElementById('panel_edycji');
+		
+		function rozwinPanelEdycji(name) {
+			var elements = panelEdycji.children;
+			for(i = 0; i < elements.length; i++) {
+				elements[i].setAttribute("style", "display: none");
+				var classText = elements[i].getAttribute("class");
+				if(classText.includes(name)) {
+					elements[i].setAttribute("style", "display: default");
+				}
+			}
+		}
+	</script>
+</html>
