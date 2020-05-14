@@ -1,0 +1,248 @@
+<!DOCTYPE html/>
+<html>
+	<head>
+		<title>Kwadraty układanka</title>
+	</head>
+	<style type="text/css" >
+		input[type="range"] {
+			width: 1000px;
+		}
+		.controls {
+			margin-left: 25px;
+		}
+		svg {
+			display: block;
+		}
+	</style>
+	<body>
+	<div id="all">
+		<svg id="svg" version="1.1"
+		xmlns="http://www.w3.org/2000/svg"
+		xmlns:xlink="http://www.w3.org/1999/xlink"
+		width="650px" height="130px">
+			<rect x="0" y="0" width="650" height="130" fill="gray" />
+			<symbol id="black" onclick="kopiuj(this.getAttribute('id'))">
+				<rect width="50" height="50" fill="black" />
+			</symbol>
+			<symbol id="b1" onclick="kopiuj(this.getAttribute('id'))" >
+				<rect x="0" y="0" class="blw" width="50" height="50" fill="black" />
+				<rect x="1" y="1" class="blw" width="17" height="17" fill="white" />
+				<rect x="32" y="1" class="blw" width="17" height="17" fill="white" />
+			</symbol>
+			<symbol id="b2" onclick="kopiuj(this.getAttribute('id'))">
+				<rect x="0" y="0" class="blw" width="50" height="50" fill="black" />
+				<rect x="32" y="1" class="blw" width="17" height="17" fill="white" />
+				<rect x="32" y="32" class="blw" width="17" height="17" fill="white" />
+			</symbol>
+			<symbol id="b3" onclick="kopiuj(this.getAttribute('id'))">
+				<rect x="0" y="0" class="blw" width="50" height="50" fill="black" />
+				<rect x="32" y="32" class="blw" width="17" height="17" fill="white" />
+				<rect x="1" y="32" class="blw" width="17" height="17" fill="white" />
+			</symbol>
+			<symbol id="b4" onclick="kopiuj(this.getAttribute('id'))">
+				<rect x="0" y="0" width="50" height="50" fill="black" />
+				<rect x="1" y="32" width="17" height="17" fill="white" />
+				<rect x="1" y="1" width="17" height="17" fill="white" />
+			</symbol>
+			<symbol id="b5" onclick="kopiuj(this.getAttribute('id'))">
+				<rect x="0" y="0" width="50" height="50" fill="black" />
+				<rect x="32" y="1" width="17" height="17" fill="white" />
+				<rect x="1" y="32" width="17" height="17" fill="white" />
+			</symbol>
+			<symbol id="b6" onclick="kopiuj(this.getAttribute('id'))">
+				<rect x="0" y="0" class="blw" width="50" height="50" fill="black" />
+				<rect x="1" y="1" class="blw" width="17" height="17" fill="white" />
+				<rect x="32" y="32" class="blw" width="17" height="17" fill="white" />
+			</symbol>
+			<symbol id="b7" onclick="kopiuj(this.getAttribute('id'))">
+				<rect x="0" y="0" width="50" height="50" fill="black" />
+				<rect x="17" y="17" width="17" height="17" fill="white" />
+			</symbol>
+			<symbol id="white" onclick="kopiuj(this.getAttribute('id'))">
+				<rect id="white1" class="white" width="50" height="50" fill="white" />
+			</symbol>
+			<symbol id="w1" onclick="kopiuj(this.getAttribute('id'))">
+				<rect x="0" y="0" class="blw" width="50" height="50" fill="white" />
+				<rect x="1" y="1" class="blw" width="17" height="17" fill="black" />
+				<rect x="32" y="1" class="blw" width="17" height="17" fill="black" />
+			</symbol>
+			<symbol id="w2" onclick="kopiuj(this.getAttribute('id'))">
+				<rect x="0" y="0" class="blw" width="50" height="50" fill="white" />
+				<rect x="32" y="1" class="blw" width="17" height="17" fill="black" />
+				<rect x="32" y="32" class="blw" width="17" height="17" fill="black" />
+			</symbol>
+			<symbol id="w3" onclick="kopiuj(this.getAttribute('id'))">
+				<rect x="0" y="0" class="blw" width="50" height="50" fill="white" />
+				<rect x="32" y="32" class="blw" width="17" height="17" fill="black" />
+				<rect x="1" y="32" class="blw" width="17" height="17" fill="black" />
+			</symbol>
+			<symbol id="w4" onclick="kopiuj(this.getAttribute('id'))">
+				<rect x="0" y="0" width="50" height="50" fill="white" />
+				<rect x="1" y="32" width="17" height="17" fill="black" />
+				<rect x="1" y="1" width="17" height="17" fill="black" />
+			</symbol>
+			<symbol id="w5" onclick="kopiuj(this.getAttribute('id'))">
+				<rect x="0" y="0" width="50" height="50" fill="white" />
+				<rect x="32" y="1" width="17" height="17" fill="black" />
+				<rect x="1" y="32" width="17" height="17" fill="black" />
+			</symbol>
+			<symbol id="w6" onclick="kopiuj(this.getAttribute('id'))">
+				<rect x="0" y="0" class="blw" width="50" height="50" fill="white" />
+				<rect x="1" y="1" class="blw" width="17" height="17" fill="black" />
+				<rect x="32" y="32" class="blw" width="17" height="17" fill="black" />
+			</symbol>
+			<symbol id="w7" onclick="kopiuj(this.getAttribute('id'))">
+				<rect x="0" y="0" width="50" height="50" fill="white" />
+				<rect x="17" y="17" width="17" height="17" fill="black" />
+			</symbol>
+			<use xlink:href="#black" x="10" y="10" />
+			<use xlink:href="#b1" x="70" y="10" />
+			<use xlink:href="#b2" x="130" y="10" />
+			<use xlink:href="#b3" x="190" y="10" />
+			<use xlink:href="#b4" x="250" y="10" />
+			<use xlink:href="#b5" x="310" y="10" />
+			<use xlink:href="#b6" x="370" y="10" />
+			<use xlink:href="#b7" x="430" y="10" />
+			<use xlink:href="#white" x="10" y="70" />
+			<use xlink:href="#w1" x="70" y="70" />
+			<use xlink:href="#w2" x="130" y="70" />
+			<use xlink:href="#w3" x="190" y="70" />
+			<use xlink:href="#w4" x="250" y="70" />
+			<use xlink:href="#w5" x="310" y="70" />
+			<use xlink:href="#w6" x="370" y="70" />
+			<use xlink:href="#w7" x="430" y="70" />
+		</svg>
+		<svg id="svg2" version="1.1"
+		xmlns="http://www.w3.org/2000/svg"
+		xmlns:xlink="http://www.w3.org/1999/xlink"
+		width="880px" height="650px">
+		</svg>
+		
+	</div>
+	<button type="button" onclick="download('test.svg')">Zapisz</button></br>
+	<button type="button" id="loadFile" >Wczytaj</button>
+	<input type="file" id="file-selector" value="Wczytaj" accept=".svg" style="display: none;" ></input>
+	</body>
+	
+	<script type="text/javascript">
+		const RightClick = document.querySelectorAll("use");
+		const loadFile = document.getElementById('loadFile');
+		const fileSelector = document.getElementById('file-selector');
+		const divall = document.getElementById('all');
+		let bufor = "";
+		const svgns = "http://www.w3.org/2000/svg";
+		const xlinks = "http://www.w3.org/1999/xlink";
+		const svgdoc = document.getElementById("svg2");
+
+		document.body.oncontextmenu = function(e)
+		{
+			document.body.setAttribute("style",`cursor: default;`);
+			bufor="";
+			return false;
+		};
+		
+		(function ()
+		{
+			for(var i=0;i<13;i++)
+			{
+				for(var j=0;j<13;j++)
+				{
+					var kwadraty = document.createElementNS(svgns,"rect");
+					kwadraty.setAttribute("width",50);
+					kwadraty.setAttribute("height",50);
+					kwadraty.setAttribute("fill","gray");
+					kwadraty.setAttribute("stroke","white");
+					kwadraty.setAttribute("stroke-width",1);
+					kwadraty.setAttribute("x",i*50);
+					kwadraty.setAttribute("y",j*50);
+					kwadraty.setAttribute("onclick","umiesc(this)");
+					svgdoc.appendChild(kwadraty);
+				}
+			}
+			
+		})();
+		
+		function kopiuj(id)
+		{
+			var use = document.createElementNS(svgns,"use");
+			
+			use.setAttributeNS(xlinks,"href","#"+id);
+			bufor = use;
+			cursorset(document.getElementById(id));
+		}
+		
+		function cursorset(elem)
+		{
+			var x = "";
+			for(i = 0; i < elem.children.length; i++)
+			{
+				x += elem.children[i].outerHTML;
+			}
+			document.body.setAttribute("style",`cursor: url('data:image/svg+xml;utf8,<svg id="svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="50" height="50" >`+x+`</svg>') 0 0, auto;`)
+		}
+		
+		function umiesc(elem)
+		{
+			svg = document.getElementById('svg2');
+			if(bufor != "")
+			{
+				var myX = elem.getAttribute("x");
+				var myY = elem.getAttribute("y");
+				
+				var use = bufor;
+				use.setAttribute("x",myX);
+				use.setAttribute("y",myY);
+				use.setAttribute("oncontextmenu","usun(this); return false;")
+				
+				svg.appendChild(use);
+				kopiuj(bufor.getAttribute("href").split('#')[1]);
+			}
+		}
+		
+		function usun(elem)
+		{
+			elem.remove();
+		}
+		
+		function download(filename)
+		{
+			var element = document.createElement('a');
+			divall.children[0].setAttribute("display","none");
+			var source = all.outerHTML;
+			element.setAttribute('href', 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(source));
+			element.setAttribute('download', filename);
+
+			element.style.display = 'none';
+			document.body.appendChild(element);
+
+			element.click();
+
+			document.body.removeChild(element);
+		}
+		
+		loadFile.addEventListener('click', function(e)
+		{
+			if(fileSelector) {
+				fileSelector.click();
+			}
+		}, false);
+		
+		fileSelector.addEventListener('change', function(e)
+		{
+			var fileExtension = /svg.*/;
+			var fileToRead = fileSelector.files[0];
+			
+			if(fileToRead.type.match(fileExtension)) {
+				var fileReader = new FileReader();
+				fileReader.onload = function (e) {
+					divall.innerHTML = fileReader.result;
+				}
+				fileReader.readAsText(fileToRead);
+			}
+			else {
+				alert("Please select svg file");
+			}
+		}, false);
+		
+		</script>
+</html>
